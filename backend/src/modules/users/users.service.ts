@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Profile } from '../../entities/profile.entity';
@@ -66,8 +66,15 @@ export class UsersService {
   }
 
   async createFaculty(createFacultyDto: CreateFacultyDto): Promise<Faculty> {
-    const faculty = this.facultyRepository.create(createFacultyDto);
-    return this.facultyRepository.save(faculty);
+    try {
+      const faculty = this.facultyRepository.create(createFacultyDto);
+      return await this.facultyRepository.save(faculty);
+    } catch (error: any) {
+      if (error.code === '23505') {
+        throw new ConflictException('A faculty member with this email already exists');
+      }
+      throw error;
+    }
   }
 
   async updateFaculty(
@@ -77,7 +84,14 @@ export class UsersService {
     const faculty = await this.getFacultyById(id);
 
     Object.assign(faculty, updateFacultyDto);
-    return this.facultyRepository.save(faculty);
+    try {
+      return await this.facultyRepository.save(faculty);
+    } catch (error: any) {
+      if (error.code === '23505') {
+        throw new ConflictException('A faculty member with this email already exists');
+      }
+      throw error;
+    }
   }
 
   async deleteFaculty(id: string): Promise<void> {
