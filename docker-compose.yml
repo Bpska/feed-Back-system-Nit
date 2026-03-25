@@ -1,0 +1,58 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: propoly_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-bps}
+      POSTGRES_DB: ${DATABASE_NAME:-propoly}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5423:5432"
+    networks:
+      - propoly_network
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: propoly_api
+    restart: always
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5423
+      DATABASE_USERNAME: ${DATABASE_USERNAME:-postgres}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-bps}
+      DATABASE_NAME: ${DATABASE_NAME:-propoly}
+      JWT_SECRET: ${JWT_SECRET:-your-secret-key-change-this-in-production}
+      JWT_EXPIRATION: 24h
+    depends_on:
+      - db
+    ports:
+      - "4000:3000"
+    networks:
+      - propoly_network
+
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=${VITE_API_URL:-http://localhost:4000}
+    container_name: propoly_web
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    networks:
+      - propoly_network
+
+networks:
+  propoly_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

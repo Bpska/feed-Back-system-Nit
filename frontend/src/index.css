@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Simple black and white theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 0% 20%;
+
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 0% 20%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 0 0% 0%;
+
+    --radius: 0.5rem;
+
+    /* Shadows */
+    --shadow-elegant: 0 4px 20px -2px hsl(0 0% 0% / 0.1);
+    --shadow-card: 0 2px 8px -1px hsl(0 0% 0% / 0.08);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 10%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 0%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 0% 80%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 0% 100%;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .card-elegant {
+    border-radius: 0.75rem;
+    border-width: 1px;
+    background-color: hsl(var(--card));
+    box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .card-elegant:hover {
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+
+  /* Container and spacing adjustments */
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Header adjustments */
+  header .flex {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  header .flex.gap-2 {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Button group on mobile - wrap and center */
+  header .flex.gap-2>button,
+  header .flex.gap-2>div {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Card grids - 2 columns on tablets */
+  .grid.grid-cols-1.md\:grid-cols-4,
+  .grid.grid-cols-1.md\:grid-cols-5 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid.grid-cols-1.lg\:grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  /* Table responsiveness */
+  table {
+    font-size: 0.75rem;
+  }
+
+  table th,
+  table td {
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Filter section stacking */
+  .grid.grid-cols-1.md\:grid-cols-3 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  /* Charts container */
+  .recharts-responsive-container {
+    min-height: 200px !important;
+  }
+
+  /* Dialog/modal sizing */
+  [role="dialog"] {
+    max-width: 95vw;
+    max-height: 90vh;
+  }
+
+  /* Form inputs */
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+
+  /* Faculty details filter bar */
+  .flex.flex-wrap.items-center.gap-4 {
+    gap: 0.5rem;
+  }
+
+  .flex.flex-wrap.items-center.gap-4>div {
+    width: 100%;
+  }
+
+  .flex.flex-wrap.items-center.gap-4 .flex.items-center.gap-2 {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  /* Star rating display */
+  .text-3xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  /* Page title */
+  h1.text-3xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+
+  h1.text-xl {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  /* Pagination */
+  nav[aria-label="pagination"] {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Extra small screens - single column */
+  .grid.grid-cols-2 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  header .flex.gap-2>button {
+    width: 100%;
+  }
+
+  /* Compact cards */
+  .card-elegant {
+    padding: 0.75rem;
+  }
+
+  .p-6 {
+    padding: 0.75rem;
+  }
+
+  .p-4 {
+    padding: 0.5rem;
+  }
+
+  /* Stats numbers */
+  .text-2xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}

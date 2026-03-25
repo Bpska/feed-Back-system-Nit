@@ -1,0 +1,130 @@
+node.exe : E:\NIT Projects\star-r
+atings-college-main\star-ratings-
+college-main\backend\node_modules
+\ts-node\src\index.ts:859
+At C:\Program 
+Files\nodejs\npx.ps1:29 char:3
++   & $NODE_EXE $NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : No 
+   tSpecified: (E:\NIT Projects  
+  ...rc\index.ts:859:String) [   
+ ], RemoteException
+    + FullyQualifiedErrorId : Na 
+   tiveCommandError
+ 
+    return new 
+TSError(diagnosticText, 
+diagnosticCodes, diagnostics);
+           ^
+TSError: ??? Unable to compile 
+TypeScript:
+src/bulk-import-all.ts(49,21): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(50,23): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(51,24): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(52,29): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(53,30): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(70,21): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(71,32): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(72,32): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(73,36): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(74,26): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(75,25): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(76,26): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(93,30): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(106,28): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(107,38): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(109,25): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(110,32): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(111,36): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(112,26): 
+error TS18046: 'record' is of 
+type 'unknown'.
+src/bulk-import-all.ts(113,31): 
+error TS18046: 'record' is of 
+type 'unknown'.
+
+    at createTSError (E:\NIT Proj
+ects\star-ratings-college-main\st
+ar-ratings-college-main\backend\n
+ode_modules\ts-node\src\index.ts:
+859:12)
+    at reportTSError (E:\NIT Proj
+ects\star-ratings-college-main\st
+ar-ratings-college-main\backend\n
+ode_modules\ts-node\src\index.ts:
+863:19)
+    at getOutput (E:\NIT Projects
+\star-ratings-college-main\star-r
+atings-college-main\backend\node_
+modules\ts-node\src\index.ts:1077
+:36)
+    at Object.compile (E:\NIT Pro
+jects\star-ratings-college-main\s
+tar-ratings-college-main\backend\
+node_modules\ts-node\src\index.ts
+:1433:41)
+    at Module.m._compile (E:\NIT 
+Projects\star-ratings-college-mai
+n\star-ratings-college-main\backe
+nd\node_modules\ts-node\src\index
+.ts:1617:30)
+    at node:internal/modules/cjs/
+loader:1706:10
+    at Object.require.extensions.
+<computed> [as .ts] (E:\NIT Proje
+cts\star-ratings-college-main\sta
+r-ratings-college-main\backend\no
+de_modules\ts-node\src\index.ts:1
+621:12)
+    at Module.load (node:internal
+/modules/cjs/loader:1289:32)
+    at Function._load (node:inter
+nal/modules/cjs/loader:1108:12)
+    at TracingChannel.traceSync (
+node:diagnostics_channel:322:14) 
+{
+  diagnosticCodes: [
+    18046, 18046, 18046, 18046,
+    18046, 18046, 18046, 18046,
+    18046, 18046, 18046, 18046,
+    18046, 18046, 18046, 18046,
+    18046, 18046, 18046, 18046
+  ]
+}
