@@ -31,7 +31,7 @@ services:
     depends_on:
       - db
     ports:
-      - "4000:3000"
+      - "4000:4000"
     networks:
       - propoly_network
 
@@ -44,7 +44,7 @@ services:
     container_name: propoly_web
     restart: always
     ports:
-      - "80:80"
+      - "8282:80"
     depends_on:
       - api
     networks:
